@@ -1,0 +1,60 @@
+{
+  "enquiry_data": 
+  [
+    {
+      "full_name": "Vaibhav Sable",
+      "email": "vaibhav.sable@zenithholidays.com",
+      "mobile": "1234567890",
+      "destination": "Srilanka",
+      "date_day": 25,
+      "package_name": "Rajasthan Heritage Safariii",
+      "sign_in_email": "vaibhav@zenithholidays.com",
+      "sign_in_password": "Vaibhav@123",
+      "checkout_first_name": "Vaibhav",
+      "checkout_last_name": "Sable",
+      "checkout_email": "vaibhav.sable@zenithholidays.com",
+      "checkout_mobile": "9876543210"
+    }  
+  ],
+
+  "register_data": 
+  [
+    {
+      "register_name": "Rohan",
+      "register_email": "vaibhavsable54@gmail.com",
+      "register_password": "Vaibhav@123",
+      "expected_url": "https://zenith-main.zenithholidays.com/"
+    } 
+ ],
+
+  "login_logout_data":
+  [
+    {
+      "email": "vaibhav@zenithholidays.com",
+      "password": "Vaibhav@123",
+      "username": "Vaibhav"
+    }
+  ],
+
+  "register_existing_email_data":
+  [
+    {
+      "register_name": "Test User",
+      "register_email": "vaibhav@zenithholidays.com",
+      "register_password": "Vaibhav@123",
+      "error_text": "User already exists"
+    }
+  ],
+
+  "holiday_enquiry_data":
+  [
+    {
+      "full_name": "Vaibhav Sable",
+      "email": "vaibhav.sable@zenithholidays.com",
+      "mobile": "1234567890",
+      "destination": "Srilanka",
+      "date_day": 25,
+      "success_text": "Request Received"
+    }
+  ]
+}
