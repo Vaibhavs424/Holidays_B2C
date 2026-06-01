@@ -26,7 +26,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     pkg = PackageDetailsPage(page)
     cart = CartPage(page)
     checkout = CheckoutPage(page)
-    
+    # jhiuyu
     home.navigate_to_home()
     assert home.verify_home_page_visible()
     home.click_menu()
