@@ -36,6 +36,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     pkg.click_book_package()
     pkg.click_add_to_cart()
     pkg.click_view_cart()
+    
     cart.click_checkout()
     
     checkout.enter_sign_in_email(enquiry['sign_in_email'])
@@ -119,7 +120,6 @@ def test_Holiday_enquiry(page : Page, holiday_enquiry):
     inquiry.click_continue_browsing()
     expect(page.get_by_text(holiday_enquiry['success_text'])).to_be_visible()
 
-
 def test_verify_holiday_package_count(page : Page):
     home = HomePage(page)
     
@@ -165,9 +165,6 @@ def test_delete_product_from_cart_as_a_loggedin_user(page : Page):
     cart.click_remove_item()
     cart.click_remove()
     expect(page.get_by_text("Your cart is empty")).to_be_visible()
-
-
-
 
 def test_forget_password_functionality(page : Page):
     page.goto(BASE_URL)
