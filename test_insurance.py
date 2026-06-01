@@ -113,6 +113,7 @@ def test_Holiday_enquiry(page : Page, holiday_enquiry):
     home = HomePage(page)
     
     home.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
     inquiry.fill_inquiry_form(holiday_enquiry['full_name'], holiday_enquiry['email'], 
                              holiday_enquiry['mobile'], holiday_enquiry['destination'], 
                              holiday_enquiry['date_day'])
@@ -124,6 +125,7 @@ def test_verify_holiday_package_count(page : Page):
     home = HomePage(page)
     
     home.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
     home.click_menu()
     home.click_search()
     page.wait_for_load_state("networkidle")
@@ -138,6 +140,7 @@ def test_Delete_product_from_cart_as_a_guestuser(page : Page):
     cart = CartPage(page)
     
     home.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
     home.click_menu()
     home.click_search()
     page.wait_for_load_state("networkidle")
@@ -156,6 +159,7 @@ def test_delete_product_from_cart_as_a_loggedin_user(page : Page):
     cart = CartPage(page)
     
     home.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
     home.click_menu()
     login.click_login_button()
     login.enter_email("vaibhav@zenithholidays.com")
@@ -168,6 +172,7 @@ def test_delete_product_from_cart_as_a_loggedin_user(page : Page):
 
 def test_forget_password_functionality(page : Page):
     page.goto(BASE_URL)
+    page.wait_for_load_state("networkidle")
     page.locator(".sr-only").click()
     page.get_by_role("main").get_by_role("button", name="Login").click()
     page.get_by_role("button", name="Forgot password?").click()
