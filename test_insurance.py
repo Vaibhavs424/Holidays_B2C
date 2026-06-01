@@ -36,6 +36,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     pkg.click_book_package()
     pkg.click_add_to_cart()
     pkg.click_view_cart()
+    
     cart.click_checkout()
     
     checkout.enter_sign_in_email(enquiry['sign_in_email'])
