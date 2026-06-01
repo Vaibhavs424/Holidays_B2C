@@ -5,7 +5,7 @@ Configuration file for test settings and constants
 # Base URL for the application
 BASE_URL = "https://zenith-main.zenithholidays.com/"
 
-# Timeout settings
+
 DEFAULT_TIMEOUT = 30000  # milliseconds
 NETWORK_IDLE_TIMEOUT = 5000  # milliseconds
 
