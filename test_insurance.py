@@ -166,9 +166,6 @@ def test_delete_product_from_cart_as_a_loggedin_user(page : Page):
     cart.click_remove()
     expect(page.get_by_text("Your cart is empty")).to_be_visible()
 
-
-
-
 def test_forget_password_functionality(page : Page):
     page.goto(BASE_URL)
     page.locator(".sr-only").click()
