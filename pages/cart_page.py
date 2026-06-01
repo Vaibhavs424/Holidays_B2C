@@ -14,6 +14,7 @@ class CartPage(BasePage):
         super().__init__(page)
 
     def click_cart_icon(self):
+        self.page.wait_for_selector(self.CART_ICON, timeout=15000)
         self.page.locator(self.CART_ICON).click()
 
     def get_package_name(self) -> str:

@@ -30,6 +30,7 @@ def page(browser_name):
 
         context = browser.new_context()
         page = context.new_page()
+        page.set_default_timeout(60000)  # Increase timeout to 60 seconds for CI environments
         yield page
 
         context.close()

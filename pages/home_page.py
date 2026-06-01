@@ -18,6 +18,8 @@ class HomePage(BasePage):
 
     def click_menu(self):
         self.click(self.MENU_BUTTON)
+        # Wait for menu animation and Search button to appear
+        self.page.wait_for_selector('button:has-text("Search")', timeout=15000)
 
     def click_search(self):
         self.page.get_by_role("button", name="Search").click()

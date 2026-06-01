@@ -14,6 +14,7 @@ class LoginPage(BasePage):
         super().__init__(page)
 
     def click_login_button(self):
+        self.page.wait_for_selector('button[name="Login"]', timeout=15000)
         self.page.get_by_role("main").get_by_role("button", name="Login").click()
 
     def enter_email(self, email: str):
