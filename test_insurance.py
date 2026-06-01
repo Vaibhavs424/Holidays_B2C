@@ -119,7 +119,6 @@ def test_Holiday_enquiry(page : Page, holiday_enquiry):
     inquiry.click_continue_browsing()
     expect(page.get_by_text(holiday_enquiry['success_text'])).to_be_visible()
 
-
 def test_verify_holiday_package_count(page : Page):
     home = HomePage(page)
     
