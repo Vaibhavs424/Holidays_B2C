@@ -6,7 +6,7 @@ Configuration file for test settings and constants
 BASE_URL = "https://zenith-main.zenithholidays.com/"
 
 
-DEFAULT_TIMEOUT = 30000  # milliseconds
+DEFAULT_TIMEOUT = 30000  # milliseconds ghjk
 NETWORK_IDLE_TIMEOUT = 5000  # milliseconds
 
 # Selectors that are commonly used
