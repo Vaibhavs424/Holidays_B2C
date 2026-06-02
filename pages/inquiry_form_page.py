@@ -37,7 +37,6 @@ class InquiryFormPage(BasePage):
         self.page.get_by_role("button", name="Get Free Callback").click()
 
     def click_continue_browsing(self):
-        self.page.wait_for_selector('button[name="Continue Browsing"]', timeout=15000, state="visible")
         self.page.get_by_role("button", name="Continue Browsing").click()
 
     def verify_success_message(self) -> bool:

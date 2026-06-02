@@ -26,7 +26,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     pkg = PackageDetailsPage(page)
     cart = CartPage(page)
     checkout = CheckoutPage(page)
-    # jhiuyu
+    
     home.navigate_to_home()
     assert home.verify_home_page_visible()
     home.click_menu()
@@ -129,6 +129,7 @@ def test_verify_holiday_package_count(page : Page):
     home.click_menu()
     home.click_search()
     page.wait_for_load_state("networkidle")
+    home.search_package("package_name")
     package_count = home.get_package_count()
     print(f"Total holiday packages displayed: {package_count}")
     assert package_count > 0, "No holiday packages are displayed on the homepage."
