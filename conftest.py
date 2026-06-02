@@ -25,13 +25,17 @@ def page(browser_name):
             browser = p.firefox.launch(headless=True)
         elif browser_name == "webkit":
             browser = p.webkit.launch(headless=True)
-        else:
-            raise ValueError(f"Unsupported browser: {browser_name}")
 
-        context = browser.new_context()
+        context = browser.new_context(
+            viewport={"width": 1920, "height": 1080}
+        )
+
         page = context.new_page()
-        page.set_default_timeout(60000)  # Increase timeout to 60 seconds for CI environments
+        page.set_default_timeout(60000)
+
         yield page
+
+        page.screenshot(path="last_page.png")
 
         context.close()
         browser.close()
