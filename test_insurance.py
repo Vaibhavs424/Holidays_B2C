@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 from playwright.sync_api import Page, expect
 from config import BASE_URL
+from conftest import page
 from pages.home_page import HomePage
 from pages.package_details_page import PackageDetailsPage
 from pages.checkout_page import CheckoutPage
@@ -61,6 +62,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
 def test_incorrect_login(page : Page):
     login = LoginPage(page)
     home = HomePage(page)
+    
     
     login.goto(BASE_URL)
     home.click_menu()
@@ -183,6 +185,9 @@ def test_forget_password_functionality(page : Page):
 
 
 # def test_request_callback(page : Page):
+
+    
+
 #     page.goto(BASE_URL)
 #     page.locator(".sr-only").click()
 #     page.get_by_role("button", name="Search").click()
