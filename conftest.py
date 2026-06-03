@@ -20,11 +20,11 @@ def browser_name(request):
 def page(browser_name):
     with sync_playwright() as p:
         if browser_name == "chromium":
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
         elif browser_name == "firefox":
-            browser = p.firefox.launch(headless=False)
+            browser = p.firefox.launch(headless=True)
         elif browser_name == "webkit":
-            browser = p.webkit.launch(headless=False)
+            browser = p.webkit.launch(headless=True)
 
         context = browser.new_context(
             # viewport={"width": 1920, "height": 1080}
