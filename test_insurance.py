@@ -1,3 +1,5 @@
+from turtle import home
+
 import pytest
 import json
 from pathlib import Path
@@ -11,6 +13,7 @@ from pages.cart_page import CartPage
 from pages.login_page import LoginPage
 from pages.registration_page import RegistrationPage
 from pages.inquiry_form_page import InquiryFormPage
+from pages.request_callback_page import RequestCallbackPage
 
 DATA_FILE = Path(__file__).parent / "Data" / "holiday_enquiry.json"
 with open(DATA_FILE) as f:
@@ -20,6 +23,7 @@ with open(DATA_FILE) as f:
     login_logout_list = test_data['login_logout_data']
     register_existing_email_list = test_data['register_existing_email_data']
     holiday_enquiry_list = test_data['holiday_enquiry_data']
+    request_callback_list = test_data['request_callback_data']
 
 @pytest.mark.parametrize('enquiry', enquiry_list)
 def test_holidays_package_add_to_cart(page : Page, enquiry):
@@ -184,19 +188,24 @@ def test_forget_password_functionality(page : Page):
     expect(page.get_by_text("Check your inbox — a reset link has been sent. After resetting, you'll receive a confirmation email.")).to_be_visible()
 
 
-# def test_request_callback(page : Page):
+@pytest.mark.parametrize('callback_data', request_callback_list)
+def test_request_callback(page : Page, callback_data):
+    home = HomePage(page)
+    callback = RequestCallbackPage(page)
 
-    
+    home.goto(BASE_URL)
+    home.click_menu()
+    home.click_search()
+    page.wait_for_load_state("networkidle")  # wait for the page to load completely  
+    home.select_package_by_name(callback_data['package_name'])
 
-#     page.goto(BASE_URL)
-#     page.locator(".sr-only").click()
-#     page.get_by_role("button", name="Search").click()
-#     page.wait_for_load_state("networkidle")  # wait for the page to load completely  
-#     page.locator("div.flex.flex-col.gap-4 article").nth(0).get_by_role("button", name="View Details").click()
-#     page.get_by_role("button", name="Request Callback").click()
-#     page.get_by_placeholder("Your Name").fill("Vaibhav Sable")
-#     page.get_by_placeholder("Email ID").fill("vaibhav.sable@zenithholidays.com")
-#     page.get_by_placeholder("Mobile Number").fill("9876543210")
-#     page.get_by_role("textbox", name="Country *").fill("Dubai")
-#     page.get_by_role("textbox", name="State *").fill("Dubai")
-#     page.get_by_role("textbox", name="City *").fill("Dubai")
+    callback.click_request_callback()
+    callback.fill_callback_form(
+        name=callback_data['name'], email=callback_data['email'],
+        mobile=callback_data['mobile'],
+        country=callback_data['country'],
+        state=callback_data['state'],
+        city=callback_data['city'],
+    )
+    callback.submit_callback_request()
+    expect(page.get_by_text("Your enquiry has been received. Our travel expert will contact you shortly.")).to_be_visible()
