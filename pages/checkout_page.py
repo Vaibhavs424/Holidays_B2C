@@ -37,7 +37,10 @@ class CheckoutPage(BasePage):
         self.page.get_by_role("textbox", name="Mobile").fill(mobile)
 
     def click_proceed_to_pay(self):
-        self.page.get_by_role("button", name="Proceed to Pay").click()
+        proceed_button = self.page.get_by_role("button", name="Proceed to Pay")
+        proceed_button.wait_for(state="visible", timeout=30000)
+        proceed_button.scroll_into_view_if_needed()
+        proceed_button.click()
 
     def fill_checkout_form(self, first_name: str, last_name: str, email: str, mobile: str):
         self.enter_first_name(first_name)
