@@ -49,6 +49,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     checkout.click_sign_in()
     
     cart.click_cart_icon()
+    page.wait_for_load_state("networkidle")
     cart_package_name = cart.get_package_name()
     print(cart_package_name)
     assert cart.verify_package_visible()
