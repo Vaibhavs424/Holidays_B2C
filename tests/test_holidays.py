@@ -15,7 +15,7 @@ from pages.registration_page import RegistrationPage
 from pages.inquiry_form_page import InquiryFormPage
 from pages.request_callback_page import RequestCallbackPage
 
-DATA_FILE = Path(__file__).parent / "Data" / "holiday_enquiry.json"
+DATA_FILE = Path(__file__).resolve().parent.parent / "Data" / "holiday_enquiry.json"
 with open(DATA_FILE) as f:
     test_data = json.load(f)
     enquiry_list = test_data['enquiry_data']
