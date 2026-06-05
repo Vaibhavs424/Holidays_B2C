@@ -47,6 +47,7 @@ def test_holidays_package_add_to_cart(page : Page, enquiry):
     checkout.enter_sign_in_email(enquiry['sign_in_email'])
     checkout.enter_sign_in_password(enquiry['sign_in_password'])
     checkout.click_sign_in()
+   
     
     cart.click_cart_icon()
     cart_package_name = cart.get_package_name()

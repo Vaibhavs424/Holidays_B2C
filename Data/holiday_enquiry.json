@@ -67,15 +67,6 @@
       "country": "India",
       "state": "Madhya Pradesh",
       "city": "Mumbai"
-    },
-    {
-      "package_name": "Rajasthan Heritage Safariii",
-      "name": "Test User",
-      "email": "test.user@example.com",
-      "mobile": "9988776655",
-      "country": "India",
-      "state": "Karnataka",
-      "city": "Bangalore"
     }
   ]
 }
